@@ -63,6 +63,9 @@ public class HorizontalCompositionTop implements AsciiBlock {
     } else if (i < this.right.height()) {
       // Inside right bounds, outside left bounds
       return " ".repeat(this.left.width()) + this.right.row(i);
+    } else if (i < this.left.height()) {
+      // Inside right bounds, outside left bounds
+      return this.left.row(i) + " ".repeat(this.right.width());
     } else {
       // Inside left bounds, outside right bounds
       return this.left.row(i);
