@@ -3,6 +3,7 @@ package edu.grinnell.csc207.experiments;
 import edu.grinnell.csc207.blocks.AsciiBlock;
 import edu.grinnell.csc207.blocks.Boxed;
 import edu.grinnell.csc207.blocks.Empty;
+import edu.grinnell.csc207.blocks.HorizontalCompositionCenter;
 import edu.grinnell.csc207.blocks.HorizontalCompositionTop;
 // import edu.grinnell.csc207.blocks.HorizontalCompositionCenter;
 // import edu.grinnell.csc207.blocks.HorizontalCompositionTop;
@@ -106,8 +107,29 @@ public class Blocks {
     separator(pen);
     AsciiBlock.print(pen, comp2);
     separator(pen);
-    AsciiBlock.print(pen, boxedcomp);
     
+    AsciiBlock.print(pen, boxedcomp);
+     AsciiBlock threeLeft = new Rectangle('L', 4, 3);
+    AsciiBlock fiveLeft = new Rectangle('L', 4, 5);
+    AsciiBlock threeRight = new Rectangle('R', 5, 3);
+    AsciiBlock fiveRight = new Rectangle('R', 5, 5);
+
+    AsciiBlock.print(pen, new HorizontalCompositionCenter(fiveLeft, threeRight));
+    
+    separator(pen);AsciiBlock.print(pen, new HorizontalCompositionCenter(threeLeft, fiveRight));
+    
+    separator(pen);AsciiBlock.print(pen, new HorizontalCompositionCenter(fiveLeft, fiveRight));
+    
+    separator(pen);
+    AsciiBlock.print(pen, 
+        new Boxed(new HorizontalCompositionCenter(fiveLeft, threeRight)));
+
+    separator(pen);
+    AsciiBlock twoLeft = new Rectangle('L', 5, 2);
+    AsciiBlock fourRight = new Rectangle('R', 5, 4);
+
+    AsciiBlock.print(pen, new HorizontalCompositionCenter(threeLeft, fourRight));
+    AsciiBlock.print(pen, new HorizontalCompositionCenter(twoLeft, fiveRight));
     pen.close();
   } // main(String[])
 } // class Blocks
