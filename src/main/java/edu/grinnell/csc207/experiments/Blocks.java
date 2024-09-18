@@ -3,6 +3,7 @@ package edu.grinnell.csc207.experiments;
 import edu.grinnell.csc207.blocks.AsciiBlock;
 import edu.grinnell.csc207.blocks.Boxed;
 import edu.grinnell.csc207.blocks.Empty;
+import edu.grinnell.csc207.blocks.HorizontalCompositionTop;
 // import edu.grinnell.csc207.blocks.HorizontalCompositionCenter;
 // import edu.grinnell.csc207.blocks.HorizontalCompositionTop;
 import edu.grinnell.csc207.blocks.Line;
@@ -84,6 +85,17 @@ public class Blocks {
     AsciiBlock.print(pen, new Surrounded(new Line("A"), '*'));
     AsciiBlock.print(pen, new Surrounded(new Surrounded(new Line("A"), ' '), '*'));
     AsciiBlock.print(pen, new Surrounded(new Surrounded(new Line("A"), 'B'), 'C'));
+    
+        AsciiBlock exes = new Rectangle('X', 3, 5);
+    AsciiBlock ohs = new Rectangle('O', 4, 2);
+
+    separator(pen);
+    AsciiBlock.print(pen, new HorizontalCompositionTop(exes, ohs));
+    separator(pen);
+    AsciiBlock.print(pen, new HorizontalCompositionTop(ohs, exes));
+    separator(pen);
+    AsciiBlock.print(pen, new HorizontalCompositionTop(exes, exes));
+
     pen.close();
   } // main(String[])
 } // class Blocks
